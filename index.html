@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechamento Fácil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fechamento Fácil</h1>
+        <div class="game-selector">
+            <label for="game-type">Escolha o jogo:</label>
+            <select id="game-type">
+                <option value="megasena">Mega-Sena (6 números)</option>
+                <option value="lotofacil">Lotofácil (15 números)</option>
+                <option value="quina">Quina (5 números)</option>
+            </select>
+        </div>
+        <div class="number-selector">
+            <h2>Selecione seus números</h2>
+            <div id="numbers" class="numbers-grid"></div>
+            <p>Números selecionados: <span id="selected-count">0</span> <span id="min-numbers"></span></p>
+        </div>
+        <div class="actions">
+            <button id="generate" disabled>Gerar Combinações</button>
+            <button id="clear">Limpar</button>
+        </div>
+        <div id="results" class="results">
+            <h2>Combinações Geradas</h2>
+            <div id="combinations"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
