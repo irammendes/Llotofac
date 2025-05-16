@@ -1,129 +1,86 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
 body {
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
 }
 
-.container {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
-    width: 100%;
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
-h1 {
-    text-align: center;
-    color: #1a3c34;
-    margin-bottom: 25px;
-    font-size: 2rem;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.game-selector, .number-selector, .actions, .results {
-    margin-bottom: 25px;
-}
-
-.game-selector label {
-    font-weight: bold;
-    margin-right: 10px;
-    color: #333;
-}
-
-.game-selector select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.numbers-grid {
+.lotofacil-wheel {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 8px;
-    margin-top: 15px;
+    padding: 10px;
 }
 
-.number {
-    background: #f1f1f1;
-    padding: 12px;
-    text-align: center;
+.number-ball {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
     cursor: pointer;
-    user-select: none;
-    font-size: 1rem;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
-.number.selected {
-    background: #28a745;
-    color: white;
+.number-ball:hover {
     transform: scale(1.1);
 }
 
-.number:hover {
-    background: #ddd;
-}
-
-.actions {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
+.achievement-badge {
+    position: relative;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s;
 }
 
-#generate {
-    background: #007bff;
+.achievement-badge::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.achievement-badge:hover::after {
+    opacity: 1;
+}
+
+/* Heatmap colors */
+.cold {
+    background-color: #1e88e5;
     color: white;
 }
 
-#generate:disabled {
-    background: #6c757d;
-    cursor: not-allowed;
-}
-
-#clear {
-    background: #dc3545;
+.cool {
+    background-color: #64b5f6;
     color: white;
 }
 
-#clear:hover {
-    background: #c82333;
+.neutral {
+    background-color: #e0e0e0;
 }
 
-.results {
-    display: none;
+.warm {
+    background-color: #ff7043;
+    color: white;
 }
 
-.results.show {
-    display: block;
-}
-
-#combinations {
-    margin-top: 15px;
-}
-
-.combination {
-    background: #f8f9fa;
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    border-left: 4px solid #007bff;
+.hot {
+    background-color: #e53935;
+    color: white;
 }
